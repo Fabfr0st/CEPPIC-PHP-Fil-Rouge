@@ -1,7 +1,6 @@
 <?php
 
-require_once "./functions/dump.php";
-require_once "./functions/route.php";
+require "./functions/functionsLoading.php";
 
 date_default_timezone_set('Europe/Paris');
 
