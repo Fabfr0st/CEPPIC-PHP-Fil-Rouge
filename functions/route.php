@@ -3,7 +3,7 @@
 function route(string $default): void
 {
   $files = glob("./includes/*.inc.php");
-  $page = $_GET['page'] ?? 'accueil';
+  $page = $_GET['page'] ?? $default;
   $page = "./includes/" . $page . ".inc.php";
 
   if (in_array($page, $files))
