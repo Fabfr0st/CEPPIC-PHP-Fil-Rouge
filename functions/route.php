@@ -1,6 +1,6 @@
 <?php
 
-function route($default): void
+function route(string $default): void
 {
   $files = glob("./includes/*.inc.php");
   $page = $_GET['page'] ?? 'accueil';
