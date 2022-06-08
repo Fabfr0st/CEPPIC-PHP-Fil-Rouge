@@ -1,6 +1,6 @@
 <?php
 
-require "./functions/functionsLoading.php";
+require_once "./functions/functionsLoading.php";
 
 date_default_timezone_set('Europe/Paris');
 
