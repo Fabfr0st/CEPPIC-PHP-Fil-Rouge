@@ -1,5 +1,9 @@
 <?php
 
+spl_autoload_register(function ($className) {
+    require './classes/' . $className . '.php';
+});
+
 require_once "./functions/functionsLoading.php";
 
 date_default_timezone_set('Europe/Paris');
