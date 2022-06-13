@@ -42,8 +42,8 @@ if (isset($_POST["frmInscription"])) {
   } else {
     $password = password_hash($password1, PASSWORD_DEFAULT);
 
-    $requete = "INSERT INTO utilisateurs (id_utilisateur, nom, prenom, mail, password)
-    VALUES (NULL, '$nom', '$prenom', '$mail', '$password');";
+    $requete = "INSERT INTO utilisateurs (nom, prenom, mail, password)
+    VALUES ('$nom', '$prenom', '$mail', '$password');";
 
     $queryInsert = new Sql();
     $queryInsert->inserer($requete);
@@ -53,7 +53,7 @@ if (isset($_POST["frmInscription"])) {
   }
 } else {
   $nom = $prenom = $mail = "";
-  //$message = "je ne viens pas du formulaire";
+  $message = "je ne viens pas du formulaire";
   include "./includes/frmInscription.php";
 }
-displayMessage($message);
+//displayMessage($message);
