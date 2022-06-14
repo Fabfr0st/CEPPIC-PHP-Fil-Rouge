@@ -28,8 +28,8 @@ class Sql
         return $this->connexion->query($query)->fetchAll();
     }
 
-    // public function __destruct()
-    // {
-    //     $this->connexion = null;
-    // }
+    public function __destruct()
+    {
+        unset($this->connexion);
+    }
 }
