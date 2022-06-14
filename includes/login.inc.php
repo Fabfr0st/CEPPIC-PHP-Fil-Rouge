@@ -1,6 +1,3 @@
-<?php
-// session_start();
-?>
 <h1>Login</h1>
 
 <?php
@@ -14,7 +11,7 @@ if (isset($_POST["frmLogin"])) {
   $erreurs = checkErrors([$mail]);
   if (mb_strlen($mail) === 0 || !filter_var($mail, FILTER_VALIDATE_EMAIL))
     array_push($erreurs, "E-mail invalide.");
-  if (mb_strlen($password) === 0)
+  if (mb_strlen($password) === 0 || $password !== "toto")
     array_push($erreurs, "Mot de passe incorrect.");
 
   if (count($erreurs)) {
@@ -27,14 +24,11 @@ if (isset($_POST["frmLogin"])) {
     $messageErreur .= "</ul>";
     echo $messageErreur;
     include "./includes/frmLogin.php";
-  } else {
+  } else
     displayMessage("Vous êtes connecté");
-    $_SESSION['loginUser'] = $mail;
-    header('Location:index.php?page=membre');
-  }
 } else {
   $mail = "";
-  // $message = "je ne viens pas du formulaire";
+  $message = "je ne viens pas du formulaire";
   include "./includes/frmLogin.php";
 }
-// displayMessage($message);
+displayMessage($message);
