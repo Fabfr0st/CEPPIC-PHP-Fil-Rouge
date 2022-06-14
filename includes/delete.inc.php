@@ -3,7 +3,7 @@
 
 $requete = 'DELETE FROM utilisateurs WHERE id_utilisateur = ' . $_GET['id'];
 
-$querySelect = new Sql();
-$delete = $querySelect->inserer($requete);
+$queryDelete = new Sql();
+$delete = $queryDelete->inserer($requete);
 
 header('Location: index.php?page=admin');
