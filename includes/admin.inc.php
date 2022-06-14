@@ -2,10 +2,12 @@
 
 <?php
 
-$requete = 'SELECT nom, prenom, mail FROM utilisateurs';
+$requete = 'SELECT id_utilisateur, nom, prenom, mail FROM utilisateurs';
 
 $querySelect = new Sql();
 $select = $querySelect->recup($requete);
+
+// dump($select);
 
 $html = "<table>
         <tr>
@@ -13,10 +15,15 @@ $html = "<table>
             <th>Prénoms</th>
             <th>Mails</th>
         </tr>";
+
 foreach ($select as $row) {
-    $html .= "<tr><td>" . $row['nom'] . "</td>";
-    $html .= "<td>" . $row['prenom'] . "</td>";
-    $html .= "<td>" . $row['mail'] . "</td></tr>";
+    $html .= "<tr id=" . $row['id_utilisateur'] . '>';
+    $html .= '<td id="nom">' . $row['nom'] . "</td>";
+    $html .= '<td id="prenom">' . $row['prenom'] . "</td>";
+    $html .= '<td id="mail">' . $row['mail'] . "</td>";
+    $html .= "<td>" . '<button><a href="index.php?page=update">Modifier</a></button>' . "</td>";
+    $html .= "<td>" . '<button><a href="index.php?page=delete&id=' . $row['id_utilisateur'] . '">Supprimer</button>' . "</td>";
+    $html .= "</tr>";
 }
 
 $html .= "</table>";
