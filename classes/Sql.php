@@ -23,6 +23,10 @@ class Sql
         $this->connexion->exec($query);
     }
 
+    public function recup($query)
+    {
+        return $this->connexion->query($query);
+    }
     // public function __destruct()
     // {
     //     $this->connexion = null;
