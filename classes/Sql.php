@@ -25,8 +25,9 @@ class Sql
 
     public function recup($query)
     {
-        return $this->connexion->query($query);
+        return $this->connexion->query($query)->fetchAll();
     }
+
     // public function __destruct()
     // {
     //     $this->connexion = null;

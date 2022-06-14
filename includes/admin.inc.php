@@ -5,8 +5,7 @@
 $requete = 'SELECT nom, prenom, mail FROM utilisateurs';
 
 $querySelect = new Sql();
-$pdo = $querySelect->recup($requete);
-$select = $pdo->fetchAll();
+$select = $querySelect->recup($requete);
 
 $html = "<table>
         <tr>
