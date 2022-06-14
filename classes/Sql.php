@@ -23,8 +23,8 @@ class Sql
         $this->connexion->exec($query);
     }
 
-    // public function __destruct()
-    // {
-    //     $this->connexion = null;
-    // }
+    public function __destruct()
+    {
+        $this->connexion = null;
+    }
 }
