@@ -21,7 +21,7 @@ foreach ($select as $row) {
     $html .= '<td id="nom">' . $row['nom'] . "</td>";
     $html .= '<td id="prenom">' . $row['prenom'] . "</td>";
     $html .= '<td id="mail">' . $row['mail'] . "</td>";
-    $html .= "<td>" . '<button><a href="index.php?page=update">Modifier</a></button>' . "</td>";
+    $html .= "<td>" . '<button><a href="index.php?page=update&id=' . $row['id_utilisateur'] . '">Modifier</a></button>' . "</td>";
     $html .= "<td>" . '<button><a href="index.php?page=delete&id=' . $row['id_utilisateur'] . '">Supprimer</button>' . "</td>";
     $html .= "</tr>";
 }
