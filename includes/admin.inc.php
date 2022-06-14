@@ -17,10 +17,10 @@ $html = "<table>
         </tr>";
 
 foreach ($select as $row) {
-    $html .= "<tr id=" . $row['id_utilisateur'] . '>';
-    $html .= '<td id="nom">' . $row['nom'] . "</td>";
-    $html .= '<td id="prenom">' . $row['prenom'] . "</td>";
-    $html .= '<td id="mail">' . $row['mail'] . "</td>";
+    $html .= "<tr>";
+    $html .= '<td>' . $row['nom'] . "</td>";
+    $html .= '<td>' . $row['prenom'] . "</td>";
+    $html .= '<td>' . $row['mail'] . "</td>";
     $html .= "<td>" . '<button><a href="index.php?page=update&id=' . $row['id_utilisateur'] . '">Modifier</a></button>' . "</td>";
     $html .= "<td>" . '<button><a href="index.php?page=delete&id=' . $row['id_utilisateur'] . '">Supprimer</button>' . "</td>";
     $html .= "</tr>";
