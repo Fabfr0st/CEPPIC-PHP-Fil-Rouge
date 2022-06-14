@@ -10,9 +10,9 @@ $select = $pdo->fetchAll();
 
 $html = "<table>
         <tr>
-            <td>Noms</td>
-            <td>Prénoms</td>
-            <td>Mails</td>
+            <th>Noms</th>
+            <th>Prénoms</th>
+            <th>Mails</th>
         </tr>";
 foreach ($select as $row) {
     $html .= "<tr><td>" . $row['nom'] . "</td>";
