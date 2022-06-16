@@ -9,7 +9,7 @@
     </div>
     <div>
         <label for="mail">Email : </label>
-        <input type="text" name="mail" id="mail" value="<?= $mail ?>">
+        <input type="email" name="mail" id="mail" value="<?= $mail ?>">
     </div>
     <div>
         <label for="password1">Mot de passe :</label>

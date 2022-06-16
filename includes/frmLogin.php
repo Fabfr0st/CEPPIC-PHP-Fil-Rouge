@@ -1,7 +1,7 @@
 <form action="index.php?page=login" method="post">
     <div>
         <label for="nom">Email : </label>
-        <input type="text" name="mail" id="mail" value="<?= $mail ?>">
+        <input type="email" name="mail" id="mail" value="<?= $mail ?>">
     </div>
     <div>
         <label for="prenom">Mot de passe : </label>
