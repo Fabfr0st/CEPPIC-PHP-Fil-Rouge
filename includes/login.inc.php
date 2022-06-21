@@ -1,9 +1,7 @@
-<?php
-// session_start();
-?>
 <h1>Login</h1>
 
 <?php
+
 if (isset($_POST["frmLogin"])) {
   $message = "je viens du formulaire";
   $mail = htmlentities(trim($_POST['mail']));
@@ -28,7 +26,7 @@ if (isset($_POST["frmLogin"])) {
     echo $messageErreur;
     include "./includes/frmLogin.php";
   } else {
-    displayMessage("Vous êtes connecté");
+    //displayMessage("Vous êtes connecté");
     $_SESSION['loginUser'] = $mail;
     header('Location:index.php?page=membre');
   }
