@@ -30,6 +30,6 @@ class Sql
 
     public function __destruct()
     {
-        unset($this->connexion);
+        $this->connexion = null;
     }
 }
