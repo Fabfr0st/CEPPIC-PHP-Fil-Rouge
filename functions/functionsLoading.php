@@ -2,8 +2,10 @@
 
 $functions = glob("./functions/*.php");
 
-foreach ($functions as $function) {
-    if (!($function === "./functions/functionsLoading.php")) {
-        require $function;
+if (is_array($functions)) {
+    foreach ($functions as $function) {
+        if (!($function === "./functions/functionsLoading.php")) {
+            require $function;
+        }
     }
 }
