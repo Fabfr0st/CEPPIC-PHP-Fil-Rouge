@@ -18,12 +18,12 @@ class Sql
         }
     }
 
-    public function inserer($query)
+    public function inserer(string $query)
     {
         $this->connexion->exec($query);
     }
 
-    public function recup($query)
+    public function recup(string $query): array
     {
         return $this->connexion->query($query)->fetchAll();
     }
