@@ -40,16 +40,20 @@ if (isset($_POST["frmInscription"])) {
 
     include "./includes/frmInscription.php";
   } else {
-    $password = password_hash($password1, PASSWORD_DEFAULT);
+    // $password = password_hash($password1, PASSWORD_DEFAULT);
 
-    $requete = "INSERT INTO utilisateurs (nom, prenom, mail, password)
-    VALUES ('$nom', '$prenom', '$mail', '$password');";
+    // $requete = "INSERT INTO utilisateurs (nom, prenom, mail, password)
+    // VALUES ('$nom', '$prenom', '$mail', '$password');";
 
-    $queryInsert = new Sql();
-    $queryInsert->inserer($requete);
-
-
-    displayMessage("Requête OK");
+    // $queryInsert = new Sql();
+    // $queryInsert->inserer($requete);
+    $inscriptionEnCours = new Utilisateur();
+    $etat = $inscriptionEnCours->inscrireUtilisateur($nom, $prenom, $mail, $password1);
+    if ($etat) {
+      displayMessage("Inscription réussie!");
+    } else {
+      displayMessage("Inscription échouée.");
+    }
   }
 } else {
   $nom = $prenom = $mail = "";
