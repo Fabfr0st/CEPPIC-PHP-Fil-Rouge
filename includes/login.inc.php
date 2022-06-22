@@ -26,9 +26,30 @@ if (isset($_POST["frmLogin"])) {
     echo $messageErreur;
     include "./includes/frmLogin.php";
   } else {
-    //displayMessage("Vous êtes connecté");
-    $_SESSION['loginUser'] = $mail;
-    header('Location:index.php?page=membre');
+    $requeteLogin = "SELECT password FROM utilisateurs WHERE mail = '$mail';";
+    $sqlLogin = new Sql();
+    $selectLogin = $sqlLogin->recup($requeteLogin);
+
+    if (count($selectLogin) > 0) {
+      $resultatPassword = $selectLogin[0]['password'];
+
+      if (password_verify($password, $resultatPassword)) {
+        $message = "Vous êtes connecté.";
+        // $_SESSION['loginUser'] = true;
+        $_SESSION['loginUser'] = $mail;
+        mail($mail, "sujet", "Vous êtes connecté !");
+        $url = $_SERVER['HTTP_ORIGIN'] . dirname($_SERVER['REQUEST_URI']) . "/";
+        echo "<p><a href=\"$url\">Revenir à la page d'accueil</a></p>";
+        echo redirection($url, 2000);
+      } else {
+        $message = "Erreur d'authentification.";
+        $_SESSION['loginUser'] = false;
+      }
+    } else {
+      $message = "Votre adresse n'est pas dans la base.";
+    }
+
+    echo $message;
   }
 } else {
   $mail = "";
