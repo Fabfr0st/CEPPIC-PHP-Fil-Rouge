@@ -101,4 +101,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+### Composer ###
+composer.phar
+/vendor/
+composer.lock
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,visualstudiocode
